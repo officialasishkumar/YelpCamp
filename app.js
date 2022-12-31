@@ -18,7 +18,6 @@ const helmet = require('helmet')
 
 const MongoDBStore = require('connect-mongo')(session)
 
-
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
@@ -49,7 +48,7 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(mongoSanitize()); 
 
-const secret = process.env.SECRET || 'thisshouldbeabettersecret';
+const secret = 'thisshouldbeabettersecret';
 
 const store = new MongoDBStore({
     url: dbURL,
